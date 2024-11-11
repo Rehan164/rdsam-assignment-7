@@ -191,7 +191,7 @@ def hypothesis_test():
 
     # TODO 10: Calculate p-value based on test type
     if test_type == "!=":
-        p_value = np.mean(np.abs(simulated_stats) >= np.abs(observed_stat))
+        p_value = np.mean((simulated_stats >= observed_stat) | (simulated_stats <= -observed_stat))
     elif test_type == ">":
         p_value = np.mean(simulated_stats >= observed_stat)
     else:  # "<"
